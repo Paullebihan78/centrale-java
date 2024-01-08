@@ -15,4 +15,24 @@ public class TestPierreFeuilleCiseaux {
         Assertions.assertEquals(c.playWith(new Ciseaux()), 0);
     }
 
+    @Test
+    public void jeuPerdu(){
+        Hand p = new Pierre();
+        Hand f = new Feuille();
+        Hand c = new Ciseaux();
+        Assertions.assertEquals(p.playWith(new Feuille()), 1);
+        Assertions.assertEquals(f.playWith(new Ciseaux()), 1);
+        Assertions.assertEquals(c.playWith(new Pierre()), 1);
+    }
+
+    @Test
+    public void jeuGagne(){
+        Hand p = new Pierre();
+        Hand f = new Feuille();
+        Hand c = new Ciseaux();
+        Assertions.assertEquals(p.playWith(new Ciseaux()), -1);
+        Assertions.assertEquals(f.playWith(new Pierre()), -1);
+        Assertions.assertEquals(c.playWith(new Feuille()), -1);
+    }
+
 }
